@@ -1,0 +1,214 @@
+API to CSV
+
+pip install requests pandas
+
+import requests
+import pandas as pd
+
+# Make the GET request to the REST API
+response = requests.get('http://api.yourwebsite.com/your-api-endpoint')
+
+# Check if the request was successful
+if response.status_code == 200:
+    # Load the data into a pandas DataFrame
+    data = pd.DataFrame(response.json())
+    
+    # Save the DataFrame to a CSV file
+    data.to_csv('output.csv', index=False)
+else:
+    print(f"Request failed with status code {response.status_code}")
+-------------------
+Sure, I can provide you with a Python script that would do that. It's important to note that you should replace the placeholders in the script with your own specific values. This script uses the `requests` and `pandas` libraries. If you don't have these libraries installed, you can install them using pip:
+
+```python
+pip install requests pandas
+```
+
+Here is a basic Python script that does what you're asking for:
+
+```python
+import requests
+import pandas as pd
+
+# Make the GET request to the REST API
+response = requests.get('http://api.yourwebsite.com/your-api-endpoint')
+
+# Check if the request was successful
+if response.status_code == 200:
+    # Load the data into a pandas DataFrame
+    data = pd.DataFrame(response.json())
+    
+    # Save the DataFrame to a CSV file
+    data.to_csv('output.csv', index=False)
+else:
+    print(f"Request failed with status code {response.status_code}")
+```
+
+You'll need to replace `'http://api.yourwebsite.com/your-api-endpoint'` with the actual URL of the REST API you're trying to call. This script assumes that the API returns a JSON object that can be converted into a 2-dimensional table. If the structure of the returned JSON is different, you might need to adjust the way you're loading the data into the DataFrame.
+
+Additionally, the script doesn't handle any potential errors that might occur during the request, such as network errors, timeouts, etc. You might want to add some error handling code to make the script more robust.
+
+It's important to note that this environment doesn't support the execution of this code due to the lack of internet access, so you'll need to run this on your local machine.
+#-------------------
+I then ran the command:
+```python
+pip install requests pandas
+```
+and got the error:
+```bash
+ ERROR: Exception:
+  Traceback (most recent call last):
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\cli\base_command.py", line 169, in exc_logging_wrapper
+      status = run_func(*args)
+               ^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\cli\req_command.py", line 248, in wrapper
+      return func(self, options, args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\commands\install.py", line 377, in run
+      requirement_set = resolver.resolve(
+                        ^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\resolution\resolvelib\resolver.py", line 92, in resolve
+      result = self._result = resolver.resolve(
+                              ^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_vendor\resolvelib\resolvers.py", line 546, in resolve
+      state = resolution.resolve(requirements, max_rounds=max_rounds)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_vendor\resolvelib\resolvers.py", line 427, in resolve
+      failure_causes = self._attempt_to_pin_criterion(name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_vendor\resolvelib\resolvers.py", line 239, in _attempt_to_pin_criterion
+      criteria = self._get_updated_criteria(candidate)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_vendor\resolvelib\resolvers.py", line 230, in _get_updated_criteria
+      self._add_to_criteria(criteria, requirement, parent=candidate)
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_vendor\resolvelib\resolvers.py", line 173, in _add_to_criteria
+      if not criterion.candidates:
+             ^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_vendor\resolvelib\structs.py", line 156, in __bool__
+      return bool(self._sequence)
+             ^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\resolution\resolvelib\found_candidates.py", line 155, in __bool__
+      return any(self)
+             ^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\resolution\resolvelib\found_candidates.py", line 143, in <genexpr>
+      return (c for c in iterator if id(c) not in self._incompatible_ids)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\resolution\resolvelib\found_candidates.py", line 47, in _iter_built
+      candidate = func()
+                  ^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\resolution\resolvelib\factory.py", line 206, in _make_candidate_from_link
+      self._link_candidate_cache[link] = LinkCandidate(
+                                         ^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\resolution\resolvelib\candidates.py", line 293, in __init__
+      super().__init__(
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\resolution\resolvelib\candidates.py", line 156, in __init__
+      self.dist = self._prepare()
+                  ^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\resolution\resolvelib\candidates.py", line 225, in _prepare
+      dist = self._prepare_distribution()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\resolution\resolvelib\candidates.py", line 304, in _prepare_distribution
+      return preparer.prepare_linked_requirement(self._ireq, parallel_builds=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\operations\prepare.py", line 516, in prepare_linked_requirement
+      return self._prepare_linked_requirement(req, parallel_builds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\operations\prepare.py", line 631, in _prepare_linked_requirement
+      dist = _get_prepared_distribution(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\operations\prepare.py", line 69, in _get_prepared_distribution
+      abstract_dist.prepare_distribution_metadata(
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\distributions\sdist.py", line 48, in prepare_distribution_metadata
+      self._install_build_reqs(finder)
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\distributions\sdist.py", line 118, in _install_build_reqs
+      build_reqs = self._get_build_requires_wheel()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\distributions\sdist.py", line 95, in _get_build_requires_wheel
+      return backend.get_requires_for_build_wheel()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_internal\utils\misc.py", line 692, in get_requires_for_build_wheel
+      return super().get_requires_for_build_wheel(config_settings=cs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_vendor\pyproject_hooks\_impl.py", line 166, in get_requires_for_build_wheel
+      return self._call_hook('get_requires_for_build_wheel', {
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_vendor\pyproject_hooks\_impl.py", line 321, in _call_hook
+      raise BackendUnavailable(data.get('traceback', ''))
+  pip._vendor.pyproject_hooks._impl.BackendUnavailable: Traceback (most recent call last):
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 77, in _build_backend
+      obj = import_module(mod_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\m2web\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+      return _bootstrap._gcd_import(name[level:], package, level)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "<frozen importlib._bootstrap>", line 1293, in _gcd_import
+    File "<frozen importlib._bootstrap>", line 1266, in _find_and_load
+    File "<frozen importlib._bootstrap>", line 1216, in _find_and_load_unlocked
+    File "<frozen importlib._bootstrap>", line 400, in _call_with_frames_removed
+    File "<frozen importlib._bootstrap>", line 1293, in _gcd_import
+    File "<frozen importlib._bootstrap>", line 1266, in _find_and_load
+    File "<frozen importlib._bootstrap>", line 1237, in _find_and_load_unlocked
+    File "<frozen importlib._bootstrap>", line 841, in _load_unlocked
+    File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+    File "<frozen importlib._bootstrap>", line 400, in _call_with_frames_removed
+    File "C:\Users\m2web\AppData\Local\Temp\pip-build-env-qtw9mjet\overlay\Lib\site-packages\setuptools\__init__.py", line 10, in <module>
+      import distutils.core
+  ModuleNotFoundError: No module named 'distutils'
+
+  [end of output]
+
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+pip subprocess to install build dependencies did not run successfully.
+exit code: 2
+
+See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
+```
+#---------------
+So, I asked Code Interpreter:
+```bash
+How do I fix this error?
+```
+
+Here was the response:
+#----------------
+
+The error message you're seeing suggests that Python's `distutils` module cannot be found. Starting with Python 3.10, the `distutils` module has been officially deprecated and will be removed in Python 3.12. It appears that you're using Python 3.12, which no longer includes `distutils`.
+
+Here are some potential solutions to your problem:
+
+1. Downgrade to a version of Python that still includes `distutils`. Python 3.9 would be a safe choice.
+
+2. Use a Python distribution that still includes `distutils`. For example, the Anaconda distribution of Python includes `distutils` even in its Python 3.12 version.
+
+3. Check if the package you're trying to install has been updated to support Python 3.12. If the package still relies on `distutils`, it might not be compatible with Python 3.12.
+
+4. If you're working in a virtual environment, try creating a new one and see if the issue persists. Sometimes, these types of issues can be caused by problems with the virtual environment.
+
+Always remember to check the compatibility of your Python packages with your Python version to avoid such issues in the future.
+#-----------------
+
+So I proceeded to remove python 3.12 from my system and install 3.9.
+
+However, it is taking forever to download the https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe file. So I stopped the download via the web browser and turned to the trusty CLI. I opened the Windows Terminal to a PowerShell session. From there I could issue a:
+
+```bash
+wget https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe
+```
+
+It seemed to be downloading much faster but then I noted a quick slowdown and then disconnected! 
+
+```bash
+wget : Unable to read data from the transport connection: An existing connection was forcibly closed by the remote
+host.
+At line:1 char:1
++ wget https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.e ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Invoke-WebRequest], IOException
+    + FullyQualifiedErrorId : System.IO.IOException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+```
+
+Oh well. It's getting late and this system needs to be restarted. I will pick up the download of python 3.9 tomorrow.
