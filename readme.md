@@ -1,6 +1,6 @@
 # API to CSV
 
-Sure, I can provide you with a Python script that would do that. It's important to note that you should replace the placeholders in the script with your own specific values. This script uses the `requests` and `pandas` libraries. If you don't have these libraries installed, you can install them using pip:
+This script uses the `requests` and `pandas` libraries. If you don't have these libraries installed, you can install them using pip:
 
 ```shell
 pip install requests pandas
