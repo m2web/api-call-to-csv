@@ -96,3 +96,11 @@ pip install requests pandas
 I found the following API: `https://api.publicapis.org/entries`
 
 I created the requested python script above, named it `markCSV.py`, and ran it. It worked! I was able to get the data from the API and then parse it into a pandas dataframe. I then wrote the dataframe to a csv file.
+
+Finally, I created this readme.md file using Code Interpreter by passing in text from a *.txt file. I typed the following command:
+
+```shell
+Change the following text into markdown
+```
+
+I then pasted the text from the *.txt file and got this markdown! :fire:
